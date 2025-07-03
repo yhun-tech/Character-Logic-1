@@ -1,0 +1,211 @@
+
+:root{
+
+    /* DARK MODE PALLETE */
+    --metal-dark1:#232222;
+    --metal-dark2:#3f4040;
+    --metal-dark3:#222222;
+    --metal-dark4:#87888a;
+    --metal-dark5:#1b1b1b1b;
+
+
+
+  
+    
+    /* DARK 1 */
+    ---dark-variant-rbg: rgb(44, 47, 49);
+    ---dark-variant: #2c2f31;
+    --dark-shadow: rgb(53,53,53);
+    --dark-shadow-alpha: rgba(53,53,53,0.5);
+
+    /* WHITE */
+    --w-pure_white--: #fff;
+    --w-main-white--:#ede8f5;
+    --w--2nd-white--:#f7f8f6;
+    --w-f5:#F5F5F5;
+
+
+    /* FONTS */
+    --gray_1--:gray;
+    
+    /* MOON PHASES */
+    --moon-phases-a:#212a31;
+    --moon-phases-b:#2e3944;
+    --moon-phases-c:#748d92;
+
+
+
+
+    /* SIGNS */
+    --sign-color-danger: #ff7782;
+    --sign-color-danger-b: #e8a2a8;
+    --sign-color-danger-c:#e7d6d8;
+    --sign-color-success_a: #41f153;
+    --sign-color-success_b: #64e4b9;
+    --sign-color-warning: #ffbb55;
+  
+
+    /* BORDER RADIUS */
+    --border-radius_5--:5px;
+    --border-radius_8--:8px;
+    --border-radius_10--:10px;
+    --border-radius_15--:15px;
+    --border-radius_20--:20px;
+    --border-radius_30--:30px;
+
+    --border-radius_circle--:50%;
+
+
+    /* MARGINS */
+    --margin--02:0.2rem;
+    --margin--04:0.4rem;
+    --margin--05:0.5rem;
+
+
+    /* FONT-SIZE */
+    --font-size--07:0.7rem;
+    --font-size--08:0.8rem;
+    --font-size--09:0.9rem;
+
+
+    --font-size--1:1rem;
+    --font-size--11:1.1rem;
+    --font-size--12:1.2rem;
+    --font-size--15:1.5rem;
+    --font-size--2:2rem;
+
+
+    /* SHADOWS */
+    --shad--1-:3px 3px 5px 2px rgba(58, 72, 82,0.1);
+    --shad--2-:3px 3px 5px 2px rgba(58, 72, 82,0.2);
+    --shad--3-:3px 3px 5px 2px rgba(58, 72, 82,0.3);
+    --shad--5-:3px 3px 5px 2px rgba(58, 72, 82,0.5);
+    
+    --shad--4-:3px 3px 5px 2px rgb(53, 53, 53,0.3);
+
+    --shad-dark-a: 3px 3px 5px 2px rgba(0,0,0,0.3);   
+    --shad-dark-b: 5px 5px 5px 2px rgba(0,0,0,0.5);   
+    --shad-dark-blur-a: 3px 3px 10px 2px rgba(0,0,0,0.4);
+
+}
+
+
+@font-face {
+    font-family: "Poppins";
+    src: url('Fonts/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('Fonts/BebasNeue-Regular.ttf');
+}
+
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins";
+    color: var(--w-f5);
+}
+
+    body{
+        height: 100vh;
+        width: 100%;
+    }
+
+    section{
+      height: 100%;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 6fr 4fr;
+      background-color: var(--metal-dark3);
+    }   
+
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        box-shadow: 1px 5px 10px 1px rgba(53,53,53,0.1);
+    }
+
+        section .screen{
+            display: grid;
+            grid-template-columns: repeat(10,1fr);
+            grid-template-rows: repeat(10,1fr);
+            gap: 0.5rem;
+            margin: 2rem 10rem; 
+            padding: 0.5rem 1rem;
+            background-color: var(---dark-variant);
+            box-shadow: var(--shad-dark-a);
+        }
+
+        .screen .output_box{
+
+            display: flex;
+            align-items: end;
+            justify-content: end;
+            height: 100%;
+            width: 100%;
+            border-radius: var(--border-radius_10--);
+            box-shadow: var(--shad-dark-a);
+
+        }
+
+
+            .screen .weapon_name{
+                padding: 0.5rem;
+                font-size: var(--font-size--09);
+            }
+            .screen .onhand_weapon{
+                grid-area: 1 / 6 / 4 /11;
+
+            }
+            .screen .offhand_weapon{
+                grid-area: 4 / 8 / 6 /11;
+            }
+            .screen .weapon_bullets{
+                justify-content: center;
+                align-items: center;
+                grid-area: 1 / 5 / 4 /6;
+            }
+                #bullet_text{
+                    font-size: 2.5rem;
+                }
+
+
+        section .hud{
+            justify-content: space-evenly;
+            margin: 1rem 10rem; 
+            background:var(---dark-variant);
+            box-shadow: var(--shad-dark-b);
+        }
+        .hud button {
+            all: unset;
+            border-radius: var(--border-radius_10--);
+            box-shadow: var(--shad-dark-a);
+            padding: 0.5rem 1rem;
+        }
+        .hud button:hover {
+            transition: 0.5s;
+            background-color: var(--metal-dark2);
+        }
+
+        .hud .passive_frame{
+               padding: 0.5rem 1rem;
+             box-shadow: var(--shad-dark-a);
+        }
+
+        .hud button#attack{
+            background:linear-gradient(45deg,cyan,gray)
+        }
+
+        .hud button#attack:hover{
+           background:linear-gradient(45deg,cyan,rgb(53,53,53))
+        }
+
+
+    
+
+

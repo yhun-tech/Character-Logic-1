@@ -101,6 +101,11 @@
 }
 
 
+@font-face {
+    font-family: 'Monument';
+    src: url('Fonts/MonumentExtended-Regular.otf');
+}
+
 *{
     padding: 0;
     margin: 0;
@@ -141,10 +146,18 @@
             box-shadow: var(--shad-dark-a);
         }
 
+
+        .screen .onhand_weapon{
+                    grid-area: 1 / 6 / 4 /11;
+
+         }
+
+
+
         .screen .output_box{
 
             display: flex;
-            align-items: end;
+            align-items:center;
             justify-content: end;
             height: 100%;
             width: 100%;
@@ -153,26 +166,45 @@
 
         }
 
-
-            .screen .weapon_name{
-                padding: 0.5rem;
-                font-size: var(--font-size--09);
-            }
-            .screen .onhand_weapon{
-                grid-area: 1 / 6 / 4 /11;
-
-            }
-            .screen .offhand_weapon{
-                grid-area: 4 / 8 / 6 /11;
-            }
-            .screen .weapon_bullets{
-                justify-content: center;
-                align-items: center;
-                grid-area: 1 / 5 / 4 /6;
-            }
-                #bullet_text{
-                    font-size: 2.5rem;
+                .weapon-image{
+                    margin-right: 1rem;
                 }
+
+                .onhand_weapon_text_frame{
+                        display: flex;
+                        align-items: center;
+                        justify-content: end;
+                        grid-area:  4 /8  / 5 /11;
+                            box-shadow: none;
+                }
+                          .onhand_weapon_text_frame p{
+                             font-family: 'Monument'; 
+                            color: var(--w-f5);
+                            font-size: 1.3rem;
+                          }
+
+                        
+                .screen .offhand_weapon{
+                    grid-area:  5 /8  / 7 /11;
+                }
+
+
+
+                .screen .weapon_bullets{
+                    justify-content: center;
+                    align-items: center;
+                    grid-area: 1 / 5 / 4 /6;
+                }
+                    #bullet_text{
+                        font-size: 2.5rem;
+                    }
+                     
+    
+            .screen .offhand_weapon_name_frame{
+                height: 10%;
+            }
+
+
 
 
         section .hud{
@@ -204,7 +236,6 @@
         .hud button#attack:hover{
            background:linear-gradient(45deg,cyan,rgb(53,53,53))
         }
-
 
     
 

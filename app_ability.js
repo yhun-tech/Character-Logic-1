@@ -17,7 +17,7 @@ let BULLETS = document.getElementById("bullets")
 
 
 
-let weapons = ["severum","calibrum","gravitum","infernum","creshendum"]
+let weapons = ["severum","calibrum","gravitum","infernum","crescendum"]
 let current_weapons = ["severum","calibrum"]
 let onhand_weapon = ""
 let offhand_weapon = ""
@@ -27,7 +27,7 @@ let next_weapons = weapons
 
 
 
-// IMAGES ============================
+// IMAGES ============================ ============================ ========================
 let severum_image = " <img src='Weapons/Severum.png' class='weapon-image severum-image'  width='80'> "
 let calibrum_image = " <img src='Weapons/Calibrum.png' class='weapon-image calibrum-image'  width='300' > "
 let gravitum_image = " <img src='Weapons/Gravitum.png' class='weapon-image gravitum-image'  width='130' > "
@@ -36,18 +36,20 @@ let crescendum_image = " <img src='Weapons/Crescendum.png' class='weapon-image c
 
 let weapons_image = [severum_image,calibrum_image,gravitum_image,infernum_image,crescendum_image]
 let current_weapon_image = [severum_image,calibrum_image]
-// IMAGES ============================
+
+// IMAGES ============================ ============================ ========================
+
 
 
 
 
 
 // BULLLETS ===== ====== ====  =====
-let severum_bullets = 30
-let calibrum_bullets = 10
-let gravitum_bullets = 30
-let infernum_bullets = 30
-let crescendum_bullets = 30
+let severum_bullets = 1
+let calibrum_bullets = 2
+let gravitum_bullets = 3
+let infernum_bullets = 4
+let crescendum_bullets = 5
 
 let current_weapon_bullets = []
 current_weapon_bullets.push(severum_bullets,calibrum_bullets)
@@ -58,74 +60,106 @@ for(let i = 0;i < current_weapon_bullets.length;i++){
     console.log(current_weapon_bullets[i])
 }
 
-
-
-
-
- onhand_weapon = current_weapons[0]
+onhand_weapon = current_weapons[0]
 offhand_weapon = current_weapons[1]
+
+
+
 
 //  SEVERUM  ==================  ==================  ==================  ==================
 function deploy_severum(){
 
-     severum_style()
+    severum_style()
     current_bullet = current_weapon_bullets[0]
 
+    onhand_weapon = weapons[0]
+    offhand_weapon = current_weapons[1]
 
     BULLETS.innerHTML =  current_bullet
     WEAPON_BULLETS_TEXT.textContent = current_bullet
-    ONHAND_WEAPON_FRAME.innerHTML =  weapons_image[0]
-    ONHAND_WEAPON_NAME.innerHTML = onhand_weapon
 
-    OFFHAND_WEAPON_FRAME.innerHTML = weapons_image[1]
-    OFFHAND_WEAPON_NAME = offhand_weapon
+    ONHAND_WEAPON_NAME.innerHTML = onhand_weapon
+    OFFHAND_WEAPON_NAME.innerHTML = offhand_weapon
 
     return current_bullet
+
 }
 
 
 
-//  CALIBRUM  ==================  ==================  ==================  ==================
+// CALIBRUM  ==================  ==================  ==================  ==================
 function deploy_calibrum(){
 
     calibrum_style()
     current_bullet = current_weapon_bullets[1]
-   
+
+    onhand_weapon = weapons[1]
+    offhand_weapon = current_weapons[1]
+
     BULLETS.innerHTML =  current_bullet
     WEAPON_BULLETS_TEXT.textContent =  current_bullet
-    ONHAND_WEAPON_FRAME .innerHTML = weapons_image[1]
+
     ONHAND_WEAPON_NAME.innerHTML = onhand_weapon
-
-
-    OFFHAND_WEAPON_FRAME.innerHTML = weapons_image[0]
-    OFFHAND_WEAPON_NAME = offhand_weapon
+    OFFHAND_WEAPON_NAME.innerHTML = offhand_weapon
 
     return current_bullet
 }
 
 
 
-//  GRAVITUM  ==================  ==================  ==================  ==================
+// GRAVITUM  ==================  ==================  ==================  ==================
 function deploy_gravitum(){
 
     gravitum_style()
-    current_bullet = current_weapon_bullets[1]
+    current_bullet = current_weapon_bullets[2]
     
-    onhand_weapon = current_weapons[0]
+    onhand_weapon = weapons[2]
     offhand_weapon = current_weapons[1]
-
     
     BULLETS.innerHTML =  current_bullet
     WEAPON_BULLETS_TEXT.textContent =  current_bullet
-    ONHAND_WEAPON_FRAME .innerHTML = gravitum_image
     ONHAND_WEAPON_NAME.innerHTML = onhand_weapon
-
-
-    OFFHAND_WEAPON_FRAME.innerHTML = severum_image
     OFFHAND_WEAPON_NAME = offhand_weapon
 
+    return current_bullet 
+}
+
+
+function deploy_infernum(){
+
+    infernum_style()
+    current_bullet = current_weapon_bullets[3]
+    
+    onhand_weapon = weapons[3]
+    offhand_weapon = current_weapons[1]
+    
+    BULLETS.innerHTML = current_bullet
+    WEAPON_BULLETS_TEXT.textContent = current_bullet
+    ONHAND_WEAPON_NAME.innerHTML = onhand_weapon
+
+    OFFHAND_WEAPON_NAME = offhand_weapon
 
     return current_bullet   
+
+}
+
+
+function deploy_crescendum(){
+
+    crescendum_style()
+    current_bullet = current_weapon_bullets[4]
+    
+    onhand_weapon = weapons[4]
+    offhand_weapon = current_weapons[1]
+    
+    BULLETS.innerHTML = current_bullet
+    WEAPON_BULLETS_TEXT.textContent =  current_bullet
+    ONHAND_WEAPON_NAME.innerHTML = onhand_weapon
+
+    OFFHAND_WEAPON_NAME = offhand_weapon
+
+    return current_bullet   
+
 }
 
 
@@ -140,17 +174,18 @@ function switch_weapons(){
     current_weapons.reverse()
     current_weapon_bullets.reverse()
     current_weapon_image.reverse()
-
-
     console.log(current_weapons + ": " ,current_weapon_bullets)
 
     onhand_weapon = current_weapons[0]
+    offhand_weapon = current_weapons[1]
+
   
         if (onhand_weapon == weapons[0]){
 
                 onhand_weapon = weapons[0]
                 deploy_severum()
                 ONHAND_WEAPON_NAME.innerHTML  =  onhand_weapon
+                OFFHAND_WEAPON_NAME.innerHTML = offhand_weapon
                 WEAPON_BULLETS_TEXT.textContent =   current_weapon_bullets[0]
                 BULLETS.textContent = current_weapon_bullets[0]
             
@@ -159,52 +194,65 @@ function switch_weapons(){
                 onhand_weapon = weapons[1]
                 deploy_calibrum()
                 ONHAND_WEAPON_NAME.innerHTML =  onhand_weapon
+                OFFHAND_WEAPON_NAME.innerHTML = offhand_weapon
                 WEAPON_BULLETS_TEXT.textContent =  current_weapon_bullets[0]
                 BULLETS.textContent = current_weapon_bullets[0]
         
          }else if(onhand_weapon == weapons[2]){
 
-                onhand_weapon =weapons[2]
+                onhand_weapon = weapons[2]
                 deploy_gravitum()
-                ONHAND_WEAPON_NAME.innerHTML  =    onhand_weapon
-                WEAPON_BULLETS_TEXT.textContent =  current_weapon_bullets[0]
+                ONHAND_WEAPON_NAME.innerHTML = onhand_weapon
+                OFFHAND_WEAPON_NAME.innerHTML = offhand_weapon
+                WEAPON_BULLETS_TEXT.textContent = current_weapon_bullets[0]
                 BULLETS.textContent = current_weapon_bullets[0]
 
         }else if(onhand_weapon == weapons[3]){
 
-                ONHAND_WEAPON_NAME.innerHTML  =    onhand_weapon
+                onhand_weapon = weapons[3]
+                deploy_infernum()
+                ONHAND_WEAPON_NAME.innerHTML = onhand_weapon
+                OFFHAND_WEAPON_NAME.innerHTML = offhand_weapon
+                WEAPON_BULLETS_TEXT.textContent =  current_weapon_bullets[0]
+                BULLETS.textContent = current_weapon_bullets[0]
+         
+
 
         }else if(onhand_weapon == weapons[4]){
-                ONHAND_WEAPON_NAME.innerHTML  =   onhand_weapon
+
+                onhand_weapon = weapons[4]
+                deploy_crescendum()
+                ONHAND_WEAPON_NAME.innerHTML = onhand_weapon
+                OFFHAND_WEAPON_NAME.innerHTML = offhand_weapon
+                WEAPON_BULLETS_TEXT.textContent = current_weapon_bullets[0]
+                BULLETS.textContent = current_weapon_bullets[0]
+         
         }
 
 
         }
-
-
-
-
 
 
 // STYLING 
 const style = document.createElement("style")
 
 
+
+
+
 // SEVERUM STYLE
 function severum_style(){
-    
     style.textContent = `
         .onhand_weapon{
                 background:linear-gradient(45deg,red,rgb(44, 47, 49),rgb(44, 47, 49));   
         }
     `
     document.head.appendChild(style)
+    
 }
-
 
 // CALIBRUM STYLE
 function calibrum_style(){
-
     style.textContent = `
         .onhand_weapon{
                 background:linear-gradient(45deg,cyan,rgb(44, 47, 49),rgb(44, 47, 49));           
@@ -212,8 +260,6 @@ function calibrum_style(){
     `
     document.head.appendChild(style)
 }
-
-
 
 // GRAVITUM STYLE
 function gravitum_style(){
@@ -226,19 +272,27 @@ function gravitum_style(){
     document.head.appendChild(style)
 }
 
-
-
-
-
-
-function deploy_image_props(){
+// INFERNUM STYLE
+function infernum_style(){
     style.textContent = `
-        .weapon-image{
-                 margin-right:1rem;
+        .onhand_weapon{
+                background:linear-gradient(45deg,blue,rgb(44, 47, 49),rgb(44, 47, 49));           
         }
     `
+    document.head.appendChild(style)
 }
 
+
+
+// CRESCENDUM STYLE
+function crescendum_style(){
+    style.textContent = `
+        .onhand_weapon{
+                background:linear-gradient(45deg,white,rgb(44, 47, 49),rgb(44, 47, 49));           
+        }
+    `
+    document.head.appendChild(style)
+}
 
 
 
@@ -248,61 +302,76 @@ ATTACK.addEventListener("click", () => {
 })
 
 
-
-
 function update_bullet(){
         current_weapon_bullets[0] -- 
         WEAPON_BULLETS_TEXT.innerHTML = current_weapon_bullets[0] 
         BULLETS.innerHTML = current_weapon_bullets[0]
-        
 }
 
+
+
+
+
 function switch_arsenal() {
+
     if (current_weapon_bullets[0] <= 0) {
-        console.log("NO AMMO");
+        console.log(onhand_weapon,": NO AMMO");
+
         let found = false;
+
         for (let i = 0; i < weapons.length; i++) {
+
             // Skip if already onhand or offhand
             if (weapons[i] === current_weapons[0] || weapons[i] === current_weapons[1]) continue;
             let bullet_count = 0;
+
+
             if (weapons[i] === "severum") bullet_count = severum_bullets;
             else if (weapons[i] === "calibrum") bullet_count = calibrum_bullets;
             else if (weapons[i] === "gravitum") bullet_count = gravitum_bullets;
             else if (weapons[i] === "infernum") bullet_count = infernum_bullets;
-            else if (weapons[i] === "creshendum") bullet_count = crescendum_bullets;
+            else if (weapons[i] === "crescendum") bullet_count = crescendum_bullets;
+
             if (bullet_count > 0) {
+
                 // Move current onhand to offhand, and new weapon to onhand
                 let prev_onhand = current_weapons[0];
                 let prev_onhand_bullets = current_weapon_bullets[0];
                 current_weapons[0] = weapons[i];
                 current_weapon_bullets[0] = bullet_count;
+
                 current_weapons[1] = prev_onhand;
                 current_weapon_bullets[1] = prev_onhand_bullets;
 
-
                 // Deploy the new weapon visually
                 if (weapons[i] === "severum") deploy_severum();
-                else if (weapons[i] === "calibrum") deploy_calibrum();
-                else if (weapons[i] === "gravitum") deploy_gravitum();
-                
+                else if(weapons[i] === "calibrum") deploy_calibrum();
+                else if(weapons[i] === "gravitum") deploy_gravitum();
+                else if(weapons[i] === "infernum") deploy_infernum();
+                else if(weapons[i] === "crescendum") deploy_crescendum();
+
                 found = true;
                 break;
+
             }
         }
+
         if (!found) {
             BULLETS.innerHTML = 0;
             WEAPON_BULLETS_TEXT.innerHTML = 0;
-            console.log("No weapons with ammo left!");
         }
+
+
     } else {
-        console.log("THERES AMMO");
+        console.log("ACTIVE AMMO:");
     }
+
+    
+
 }
 
 
-
-
-// DEFAULT ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ====   ==== ==== ==== ==== ==== ====   ==== ==== ==== ==== ==== ==== 
+// DEFAULT ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ====   ==== ==== ==== ====
 
 deploy_severum()
 

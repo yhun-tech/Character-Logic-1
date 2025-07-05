@@ -146,10 +146,8 @@
             box-shadow: var(--shad-dark-a);
         }
 
-
         .screen .onhand_weapon{
-                    grid-area: 1 / 6 / 4 /11;
-
+            grid-area: 1 / 6 / 4 /11;
          }
 
 
@@ -187,6 +185,14 @@
                 .screen .offhand_weapon{
                     grid-area:  5 /8  / 7 /11;
                 }
+                    .offhand_weapon_text_frame{
+                        grid-area:  7/8  / 8 /11;
+                        display: flex;
+                        align-items: center;
+                        justify-content: end;
+                   
+                    }
+
 
 
 
@@ -203,6 +209,8 @@
             .screen .offhand_weapon_name_frame{
                 height: 10%;
             }
+
+
 
 
 
